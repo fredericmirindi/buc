@@ -1,0 +1,99 @@
+name: LaTeX PDF Compilation
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - '**.tex'
+      - '.github/workflows/latex-compile.yml'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - '**.tex'
+      - '.github/workflows/latex-compile.yml'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Install LaTeX dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra texlive-science texlive-lang-european
+        sudo apt-get install -y texlive-pictures texlive-luatex texlive-xetex
+        sudo apt-get install -y ghostscript
+        
+    - name: Compile LaTeX document
+      run: |
+        # First compilation
+        pdflatex -interaction=nonstopmode lecture_notes.tex
+        
+        # Second compilation for cross-references
+        pdflatex -interaction=nonstopmode lecture_notes.tex
+        
+        # Third compilation to finalize everything
+        pdflatex -interaction=nonstopmode lecture_notes.tex
+        
+    - name: Check if PDF was created
+      run: |
+        if [ -f "lecture_notes.pdf" ]; then
+          echo "PDF successfully created"
+          ls -la lecture_notes.pdf
+        else
+          echo "PDF creation failed"
+          exit 1
+        fi
+        
+    - name: Upload PDF artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: lecture-notes-pdf
+        path: lecture_notes.pdf
+        retention-days: 90
+        
+    - name: Create Release (on main branch)
+      if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+      uses: softprops/action-gh-release@v1
+      with:
+        tag_name: v${{ github.run_number }}
+        name: "Lecture Notes v${{ github.run_number }}"
+        body: |
+          📚 **Mathematics and Descriptive Statistics in Excel - Lecture Notes**
+          
+          **Author:** Frédéric Mirindi, Lecturer - Booth University College
+          
+          This release contains the compiled PDF of the comprehensive lecture notes covering:
+          - Introduction to Mathematics for Statistics
+          - Data Types and Measurement Scales
+          - Measures of Central Tendency
+          - Measures of Variability
+          - Probability Distributions
+          - Correlation and Regression Analysis
+          - Advanced Excel Statistical Functions
+          - Statistical Projects and Case Studies
+          
+          **Generated on:** ${{ github.event.head_commit.timestamp }}
+          **Commit SHA:** ${{ github.sha }}
+          
+          📖 Perfect for undergraduate students learning statistics with Excel!
+        files: lecture_notes.pdf
+        draft: false
+        prerelease: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        
+    - name: Upload compilation logs (on failure)
+      if: failure()
+      uses: actions/upload-artifact@v4
+      with:
+        name: latex-compilation-logs
+        path: |
+          *.log
+          *.aux
+          *.out
+        retention-days: 7
