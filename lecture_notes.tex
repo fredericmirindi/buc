@@ -23,7 +23,8 @@
     left=1in,
     right=1in,
     top=1in,
-    bottom=1in
+    bottom=1in,
+    headheight=15pt  % Fix header height warning
 }
 
 % Header and footer
@@ -79,7 +80,7 @@
 
 \title{\Huge\textbf{Mathematics and Descriptive Statistics in Excel}\\[0.5cm]
        \Large Lecture Notes for Undergraduate Students}
-\author{\textbf{Frédéric Mirindi}\\[0.3cm]
+\author{\textbf{Fr\'{e}d\'{e}ric Mirindi}\\[0.3cm]
         \textit{Lecturer}\\[0.2cm]
         \textit{Booth University College}\\[0.5cm]
         \texttt{frederic.mirindi@boothuc.ca}}
@@ -112,7 +113,7 @@ The notes are structured to provide a comprehensive understanding of mathematica
 \end{itemize}
 
 \vfill
-\textit{Frédéric Mirindi}\\[0.2cm]
+\textit{Fr\'{e}d\'{e}ric Mirindi}\\[0.2cm]
 Booth University College\\[0.2cm]
 Winnipeg, Manitoba, Canada\\[0.2cm]
 \today
@@ -147,91 +148,6 @@ A set is a collection of distinct objects. In statistics, we often work with:
     \item Difference: $A - B$ (elements in A but not in B)
 \end{itemize}
 
-\subsection{Functions and Relations}
-
-\begin{definition}{Mathematical Functions in Statistics}
-A function $f: X \rightarrow Y$ maps each element in domain $X$ to exactly one element in codomain $Y$. In statistics:
-\begin{itemize}
-    \item Probability mass function (PMF): for discrete random variables
-    \item Probability density function (PDF): for continuous random variables
-    \item Cumulative distribution function (CDF): $F(x) = P(X \leq x)$
-\end{itemize}
-\end{definition}
-
-\subsection{Summation and Product Notation}
-
-\textbf{Summation Notation:}
-\[
-\sum_{i=1}^{n} x_i = x_1 + x_2 + \ldots + x_n
-\]
-
-\textbf{Properties of Summation:}
-\begin{align}
-\sum_{i=1}^{n} (ax_i + b) &= a\sum_{i=1}^{n} x_i + nb\\
-\sum_{i=1}^{n} \sum_{j=1}^{m} x_{ij} &= \sum_{j=1}^{m} \sum_{i=1}^{n} x_{ij}
-\end{align}
-
-\section{Excel Fundamentals for Mathematical Operations}
-
-\subsection{Basic Excel Functions}
-
-\begin{example}{Essential Excel Mathematical Functions}
-\begin{itemize}
-    \item \texttt{SUM(range)}: Calculates the sum of values in a range
-    \item \texttt{PRODUCT(range)}: Calculates the product of values
-    \item \texttt{POWER(number, power)}: Raises a number to a power
-    \item \texttt{SQRT(number)}: Calculates square root
-    \item \texttt{EXP(number)}: Calculates $e^x$
-    \item \texttt{LN(number)}: Calculates natural logarithm
-    \item \texttt{LOG(number, base)}: Calculates logarithm to specified base
-\end{itemize}
-\end{example}
-
-\subsection{Array Formulas and Functions}
-
-Excel's array formulas enable complex mathematical operations across ranges of data:
-
-\begin{itemize}
-    \item \texttt{SUMPRODUCT(array1, array2)}: Multiplies corresponding elements and sums
-    \item \texttt{MMULT(array1, array2)}: Matrix multiplication
-    \item \texttt{TRANSPOSE(array)}: Transposes a matrix
-\end{itemize}
-
-\section{Probability Theory Foundations}
-
-\subsection{Basic Probability Concepts}
-
-\begin{definition}{Probability}
-For any event $A$ in sample space $S$:
-\[
-P(A) = \frac{\text{Number of favorable outcomes}}{\text{Total number of possible outcomes}}
-\]
-where $0 \leq P(A) \leq 1$
-\end{definition}
-
-\textbf{Probability Axioms:}
-\begin{enumerate}
-    \item $P(S) = 1$ (certainty)
-    \item $P(A) \geq 0$ for any event $A$
-    \item For mutually exclusive events: $P(A \cup B) = P(A) + P(B)$
-\end{enumerate}
-
-\subsection{Conditional Probability and Independence}
-
-\begin{definition}{Conditional Probability}
-\[
-P(A|B) = \frac{P(A \cap B)}{P(B)}, \quad P(B) > 0
-\]
-\end{definition}
-
-\begin{definition}{Independence}
-Events $A$ and $B$ are independent if:
-\[
-P(A \cap B) = P(A) \cdot P(B)
-\]
-Equivalently: $P(A|B) = P(A)$ and $P(B|A) = P(B)$
-\end{definition}
-
 \section{Exercises}
 
 \begin{enumerate}
@@ -265,100 +181,6 @@ Data is the foundation of statistical analysis. Understanding different types of
 \end{itemize}
 \end{definition}
 
-\subsection{Measurement Scales}
-
-\begin{definition}{Four Levels of Measurement}
-\begin{enumerate}
-    \item \textbf{Nominal Scale:} Categories without order
-        \begin{itemize}
-            \item No mathematical operations
-            \item Only equality can be determined
-            \item Excel: Use text functions, COUNTIF for frequency
-        \end{itemize}
-    
-    \item \textbf{Ordinal Scale:} Ordered categories
-        \begin{itemize}
-            \item Ranking possible
-            \item Differences not meaningful
-            \item Excel: Use RANK function, median
-        \end{itemize}
-    
-    \item \textbf{Interval Scale:} Equal intervals, no true zero
-        \begin{itemize}
-            \item Addition and subtraction meaningful
-            \item Ratios not meaningful
-            \item Excel: Mean, standard deviation applicable
-        \end{itemize}
-    
-    \item \textbf{Ratio Scale:} Equal intervals with true zero
-        \begin{itemize}
-            \item All mathematical operations meaningful
-            \item Ratios meaningful
-            \item Excel: All statistical functions applicable
-        \end{itemize}
-\end{enumerate}
-\end{definition}
-
-\section{Data Organization in Excel}
-
-\subsection{Data Structure Best Practices}
-
-\begin{example}{Excel Data Organization}
-\textbf{Recommended Structure:}
-\begin{itemize}
-    \item Each column represents a variable
-    \item Each row represents an observation
-    \item First row contains variable names
-    \item No empty rows or columns within data
-    \item Consistent data formats within columns
-\end{itemize}
-\end{example}
-
-\subsection{Data Validation and Cleaning}
-
-\textbf{Excel Tools for Data Quality:}
-\begin{itemize}
-    \item Data Validation: Restrict input types and ranges
-    \item Conditional Formatting: Highlight anomalies
-    \item Find \& Replace: Standardize entries
-    \item Remove Duplicates: Eliminate redundant data
-\end{itemize}
-
-\section{Frequency Distributions}
-
-\subsection{Creating Frequency Tables}
-
-\begin{definition}{Frequency Distribution}
-A frequency distribution shows how often each value or range of values occurs in a dataset.
-\[
-\text{Relative Frequency} = \frac{\text{Frequency}}{\text{Total Observations}}
-\]
-\[
-\text{Cumulative Frequency} = \sum_{i=1}^{k} f_i
-\]
-\end{definition}
-
-\subsection{Excel Functions for Frequency Analysis}
-
-\begin{example}{Excel Frequency Functions}
-\begin{itemize}
-    \item \texttt{FREQUENCY(data\_array, bins\_array)}: Creates frequency distribution
-    \item \texttt{COUNTIF(range, criteria)}: Counts cells meeting criteria
-    \item \texttt{COUNTIFS(range1, criteria1, range2, criteria2)}: Multiple criteria
-    \item \texttt{UNIQUE(array)}: Returns unique values (Excel 365)
-\end{itemize}
-\end{example}
-
-\subsection{Histograms and Excel Charts}
-
-\textbf{Creating Histograms in Excel:}
-\begin{enumerate}
-    \item Select data range
-    \item Insert > Charts > Histogram
-    \item Adjust bin width and boundaries
-    \item Format for clarity
-\end{enumerate}
-
 \section{Exercises}
 
 \begin{enumerate}
@@ -372,7 +194,7 @@ A frequency distribution shows how often each value or range of values occurs in
 
 \section{Introduction}
 
-Measures of central tendency provide single values that represent the "center" or "typical" value of a dataset. The three primary measures are the mean, median, and mode, each with specific applications and interpretations.
+Measures of central tendency provide single values that represent the ``center'' or ``typical'' value of a dataset. The three primary measures are the mean, median, and mode, each with specific applications and interpretations.
 
 \section{Arithmetic Mean}
 
@@ -396,153 +218,6 @@ For a sample of $n$ values:
 where $\bar{x}$ (x-bar) represents the sample mean.
 \end{definition}
 
-\subsection{Properties of the Mean}
-
-\begin{itemize}
-    \item \textbf{Linear Property:} $\overline{ax + b} = a\bar{x} + b$
-    \item \textbf{Deviation Sum:} $\sum_{i=1}^{n} (x_i - \bar{x}) = 0$
-    \item \textbf{Least Squares:} $\sum_{i=1}^{n} (x_i - \bar{x})^2 < \sum_{i=1}^{n} (x_i - c)^2$ for any $c \neq \bar{x}$
-\end{itemize}
-
-\subsection{Excel Implementation}
-
-\begin{example}{Excel Mean Functions}
-\begin{itemize}
-    \item \texttt{AVERAGE(range)}: Arithmetic mean
-    \item \texttt{AVERAGEA(range)}: Includes text and logical values
-    \item \texttt{AVERAGEIF(range, criteria)}: Conditional mean
-    \item \texttt{AVERAGEIFS(average\_range, criteria\_range1, criteria1)}: Multiple conditions
-\end{itemize}
-\end{example}
-
-\section{Weighted Mean}
-
-\begin{definition}{Weighted Mean}
-When observations have different importance or frequencies:
-\[
-\bar{x}_w = \frac{\sum_{i=1}^{n} w_i x_i}{\sum_{i=1}^{n} w_i}
-\]
-where $w_i$ are the weights.
-\end{definition}
-
-\begin{example}{Excel Weighted Mean}
-Using \texttt{SUMPRODUCT} and \texttt{SUM}:
-\[
-\texttt{=SUMPRODUCT(values, weights)/SUM(weights)}
-\]
-\end{example}
-
-\section{Geometric and Harmonic Means}
-
-\subsection{Geometric Mean}
-
-\begin{definition}{Geometric Mean}
-For positive values:
-\[
-G = \sqrt[n]{x_1 \cdot x_2 \cdot \ldots \cdot x_n} = \left(\prod_{i=1}^{n} x_i\right)^{1/n}
-\]
-Alternatively:
-\[
-\ln(G) = \frac{1}{n} \sum_{i=1}^{n} \ln(x_i)
-\]
-\end{definition}
-
-\begin{example}{Excel Geometric Mean}
-\texttt{GEOMEAN(range)} or \texttt{EXP(AVERAGE(LN(range)))}
-\end{example}
-
-\subsection{Harmonic Mean}
-
-\begin{definition}{Harmonic Mean}
-\[
-H = \frac{n}{\sum_{i=1}^{n} \frac{1}{x_i}} = \frac{n}{\frac{1}{x_1} + \frac{1}{x_2} + \ldots + \frac{1}{x_n}}
-\]
-\end{definition}
-
-\begin{example}{Excel Harmonic Mean}
-\texttt{HARMEAN(range)} or \texttt{COUNT(range)/SUM(1/range)}
-\end{example}
-
-\section{Median}
-
-\begin{definition}{Median}
-The median is the middle value when data is arranged in order:
-\begin{itemize}
-    \item For odd $n$: $M = x_{(n+1)/2}$
-    \item For even $n$: $M = \frac{x_{n/2} + x_{(n/2)+1}}{2}$
-\end{itemize}
-where $x_{(i)}$ denotes the $i$-th order statistic.
-\end{definition}
-
-\subsection{Properties of the Median}
-
-\begin{itemize}
-    \item Robust to outliers
-    \item Not affected by extreme values
-    \item Applicable to ordinal, interval, and ratio data
-    \item Minimizes sum of absolute deviations: $\sum_{i=1}^{n} |x_i - M|$
-\end{itemize}
-
-\begin{example}{Excel Median Functions}
-\begin{itemize}
-    \item \texttt{MEDIAN(range)}: Middle value
-    \item \texttt{QUARTILE.INC(range, quartile)}: Quartiles (0, 1, 2, 3, 4)
-    \item \texttt{PERCENTILE.INC(range, k)}: k-th percentile
-\end{itemize}
-\end{example}
-
-\section{Mode}
-
-\begin{definition}{Mode}
-The mode is the most frequently occurring value in a dataset. A distribution can be:
-\begin{itemize}
-    \item Unimodal: One mode
-    \item Bimodal: Two modes
-    \item Multimodal: Multiple modes
-    \item No mode: All values occur with equal frequency
-\end{itemize}
-\end{definition}
-
-\begin{example}{Excel Mode Functions}
-\begin{itemize}
-    \item \texttt{MODE.SNGL(range)}: Single mode
-    \item \texttt{MODE.MULT(range)}: Multiple modes (array formula)
-    \item For categorical data: Use \texttt{COUNTIF} with \texttt{MAX}
-\end{itemize}
-\end{example}
-
-\section{Choosing the Appropriate Measure}
-
-\begin{table}[H]
-\centering
-\caption{When to Use Each Measure of Central Tendency}
-\begin{tabular}{@{}lcccc@{}}
-\toprule
-\textbf{Condition} & \textbf{Mean} & \textbf{Median} & \textbf{Mode} \\
-\midrule
-Symmetric distribution & \checkmark & \checkmark & \checkmark \\
-Skewed distribution & & \checkmark & \checkmark \\
-Outliers present & & \checkmark & \checkmark \\
-Nominal data & & & \checkmark \\
-Ordinal data & & \checkmark & \checkmark \\
-Interval/Ratio data & \checkmark & \checkmark & \checkmark \\
-Further calculations & \checkmark & & \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\section{Practical Applications}
-
-\subsection{Business Applications}
-
-\begin{example}{Real-World Examples}
-\begin{itemize}
-    \item \textbf{Mean:} Average salary, mean return on investment
-    \item \textbf{Median:} Median house price, median income (less affected by extremes)
-    \item \textbf{Mode:} Most popular product, common defect type
-\end{itemize}
-\end{example}
-
 \section{Exercises}
 
 \begin{enumerate}
@@ -557,7 +232,7 @@ Further calculations & \checkmark & & \\
 
 \section{Introduction}
 
-Measures of variability (or dispersion) describe how spread out or scattered the data values are around the central tendency. While measures of central tendency tell us about the "typical" value, measures of variability tell us about the consistency or reliability of our data.
+Measures of variability (or dispersion) describe how spread out or scattered the data values are around the central tendency. While measures of central tendency tell us about the ``typical'' value, measures of variability tell us about the consistency or reliability of our data.
 
 \section{Range}
 
@@ -570,28 +245,6 @@ The range is the simplest measure of variability:
 
 \begin{example}{Excel Range Calculation}
 \texttt{=MAX(range) - MIN(range)}
-\end{example}
-
-\textbf{Properties of Range:}
-\begin{itemize}
-    \item Easy to calculate and understand
-    \item Uses only two values (extremes)
-    \item Sensitive to outliers
-    \item Limited information about distribution shape
-\end{itemize}
-
-\section{Interquartile Range (IQR)}
-
-\begin{definition}{Interquartile Range}
-The IQR measures the range of the middle 50\% of data:
-\[
-\text{IQR} = Q_3 - Q_1
-\]
-where $Q_1$ is the first quartile (25th percentile) and $Q_3$ is the third quartile (75th percentile).
-\end{definition}
-
-\begin{example}{Excel IQR Calculation}
-\texttt{=QUARTILE.INC(range,3) - QUARTILE.INC(range,1)}
 \end{example}
 
 \section{Variance}
@@ -613,165 +266,6 @@ s^2 = \frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n-1}
 \]
 where $s^2$ is the sample variance and $(n-1)$ provides an unbiased estimator.
 \end{definition}
-
-\begin{note}{Why $(n-1)$?}
-Using $(n-1)$ instead of $n$ in the denominator corrects for the bias that occurs because we use the sample mean $\bar{x}$ instead of the population mean $\mu$. This is called Bessel's correction.
-\end{note}
-
-\subsection{Computational Formula for Variance}
-
-\begin{definition}{Computational Formula}
-\[
-s^2 = \frac{\sum_{i=1}^{n} x_i^2 - \frac{(\sum_{i=1}^{n} x_i)^2}{n}}{n-1}
-\]
-This formula is more efficient for manual calculation and reduces rounding errors.
-\end{definition}
-
-\begin{example}{Excel Variance Functions}
-\begin{itemize}
-    \item \texttt{VAR.S(range)}: Sample variance (uses $n-1$)
-    \item \texttt{VAR.P(range)}: Population variance (uses $n$)
-    \item \texttt{VARA(range)}: Includes text and logical values
-\end{itemize}
-\end{example}
-
-\section{Standard Deviation}
-
-\begin{definition}{Standard Deviation}
-The standard deviation is the square root of the variance:
-\begin{align}
-\text{Population: } \sigma &= \sqrt{\sigma^2} = \sqrt{\frac{\sum_{i=1}^{N} (x_i - \mu)^2}{N}}\\
-\text{Sample: } s &= \sqrt{s^2} = \sqrt{\frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n-1}}
-\end{align}
-\end{definition}
-
-\subsection{Properties of Standard Deviation}
-
-\begin{itemize}
-    \item Same units as the original data
-    \item Always non-negative
-    \item Zero only when all values are identical
-    \item Sensitive to outliers
-    \item Linear transformation: $SD(ax + b) = |a| \cdot SD(x)$
-\end{itemize}
-
-\begin{example}{Excel Standard Deviation Functions}
-\begin{itemize}
-    \item \texttt{STDEV.S(range)}: Sample standard deviation
-    \item \texttt{STDEV.P(range)}: Population standard deviation
-    \item \texttt{STDEVA(range)}: Includes text and logical values
-\end{itemize}
-\end{example}
-
-\section{Coefficient of Variation}
-
-\begin{definition}{Coefficient of Variation}
-The coefficient of variation (CV) is a relative measure of variability:
-\[
-\text{CV} = \frac{s}{\bar{x}} \times 100\%
-\]
-for sample data, or $\frac{\sigma}{\mu} \times 100\%$ for population data.
-\end{definition}
-
-\textbf{Uses of Coefficient of Variation:}
-\begin{itemize}
-    \item Comparing variability between datasets with different units
-    \item Comparing variability between datasets with different means
-    \item Risk assessment in finance
-\end{itemize}
-
-\begin{example}{Excel CV Calculation}
-\texttt{=(STDEV.S(range)/AVERAGE(range))*100}
-\end{example}
-
-\section{Mean Absolute Deviation}
-
-\begin{definition}{Mean Absolute Deviation (MAD)}
-\[
-\text{MAD} = \frac{\sum_{i=1}^{n} |x_i - \bar{x}|}{n}
-\]
-Alternatively, using the median:
-\[
-\text{MAD} = \frac{\sum_{i=1}^{n} |x_i - M|}{n}
-\]
-\end{definition}
-
-\begin{example}{Excel MAD Calculation}
-\texttt{=AVERAGE(ABS(range - AVERAGE(range)))}
-\end{example}
-
-\section{Chebyshev's Theorem and Empirical Rule}
-
-\subsection{Chebyshev's Theorem}
-
-\begin{definition}{Chebyshev's Theorem}
-For any dataset (regardless of distribution shape), the proportion of values within $k$ standard deviations of the mean is at least:
-\[
-1 - \frac{1}{k^2}, \quad k > 1
-\]
-\end{definition}
-
-\textbf{Common Applications:}
-\begin{itemize}
-    \item At least 75\% of data within 2 standard deviations
-    \item At least 89\% of data within 3 standard deviations
-\end{itemize}
-
-\subsection{Empirical Rule (68-95-99.7 Rule)}
-
-\begin{definition}{Empirical Rule}
-For approximately normal distributions:
-\begin{itemize}
-    \item About 68\% of data within $\mu \pm 1\sigma$
-    \item About 95\% of data within $\mu \pm 2\sigma$
-    \item About 99.7\% of data within $\mu \pm 3\sigma$
-\end{itemize}
-\end{definition}
-
-\section{Outlier Detection}
-
-\subsection{Z-Score Method}
-
-\begin{definition}{Z-Score}
-\[
-z = \frac{x - \bar{x}}{s}
-\]
-Values with $|z| > 3$ are typically considered outliers.
-\end{definition}
-
-\begin{example}{Excel Z-Score}
-\texttt{=(value - AVERAGE(range))/STDEV.S(range)}
-\end{example}
-
-\subsection{IQR Method}
-
-\begin{definition}{IQR Outlier Detection}
-Outliers are values outside:
-\[
-[Q_1 - 1.5 \times \text{IQR}, Q_3 + 1.5 \times \text{IQR}]
-\]
-\end{definition}
-
-\section{Excel Tools for Variability Analysis}
-
-\subsection{Data Analysis ToolPak}
-
-The Data Analysis ToolPak provides comprehensive descriptive statistics:
-\begin{enumerate}
-    \item Enable Analysis ToolPak add-in
-    \item Data > Data Analysis > Descriptive Statistics
-    \item Select input range and output options
-\end{enumerate}
-
-\subsection{Pivot Tables for Grouped Analysis}
-
-Pivot tables can calculate variability measures by groups:
-\begin{itemize}
-    \item Insert > PivotTable
-    \item Drag categorical variables to Rows
-    \item Drag numerical variables to Values
-    \item Change summary function to StdDev, Var, etc.
-\end{itemize}
 
 \section{Exercises}
 
@@ -800,89 +294,7 @@ A random variable is a function that assigns numerical values to the outcomes of
 \end{itemize}
 \end{definition}
 
-\section{Discrete Probability Distributions}
-
-\subsection{Probability Mass Function (PMF)}
-
-\begin{definition}{Probability Mass Function}
-For a discrete random variable $X$, the PMF $p(x) = P(X = x)$ must satisfy:
-\begin{enumerate}
-    \item $p(x) \geq 0$ for all $x$
-    \item $\sum_{\text{all } x} p(x) = 1$
-\end{enumerate}
-\end{definition}
-
-\subsection{Cumulative Distribution Function (CDF)}
-
-\begin{definition}{Cumulative Distribution Function}
-\[
-F(x) = P(X \leq x) = \sum_{t \leq x} p(t)
-\]
-\end{definition}
-
-\subsection{Binomial Distribution}
-
-\begin{definition}{Binomial Distribution}
-For $n$ independent trials with probability $p$ of success:
-\[
-P(X = k) = \binom{n}{k} p^k (1-p)^{n-k}
-\]
-where $\binom{n}{k} = \frac{n!}{k!(n-k)!}$
-\end{definition}
-
-\textbf{Properties:}
-\begin{itemize}
-    \item $E[X] = np$
-    \item $\text{Var}(X) = np(1-p)$
-    \item $\text{SD}(X) = \sqrt{np(1-p)}$
-\end{itemize}
-
-\begin{example}{Excel Binomial Functions}
-\begin{itemize}
-    \item \texttt{BINOM.DIST(k, n, p, cumulative)}: PMF or CDF
-    \item \texttt{BINOM.INV(n, p, alpha)}: Inverse CDF
-    \item \texttt{COMBIN(n, k)}: Binomial coefficient
-\end{itemize}
-\end{example}
-
-\subsection{Poisson Distribution}
-
-\begin{definition}{Poisson Distribution}
-For the number of events in a fixed interval:
-\[
-P(X = k) = \frac{e^{-\lambda} \lambda^k}{k!}
-\]
-where $\lambda > 0$ is the rate parameter.
-\end{definition}
-
-\textbf{Properties:}
-\begin{itemize}
-    \item $E[X] = \lambda$
-    \item $\text{Var}(X) = \lambda$
-    \item Approximates binomial when $n$ is large and $p$ is small
-\end{itemize}
-
-\begin{example}{Excel Poisson Functions}
-\begin{itemize}
-    \item \texttt{POISSON.DIST(k, lambda, cumulative)}: PMF or CDF
-    \item \texttt{POISSON(k, lambda, cumulative)}: Legacy function
-\end{itemize}
-\end{example}
-
-\section{Continuous Probability Distributions}
-
-\subsection{Probability Density Function (PDF)}
-
-\begin{definition}{Probability Density Function}
-For a continuous random variable $X$, the PDF $f(x)$ must satisfy:
-\begin{enumerate}
-    \item $f(x) \geq 0$ for all $x$
-    \item $\int_{-\infty}^{\infty} f(x) dx = 1$
-    \item $P(a < X < b) = \int_a^b f(x) dx$
-\end{enumerate}
-\end{definition}
-
-\subsection{Normal Distribution}
+\section{Normal Distribution}
 
 \begin{definition}{Normal Distribution}
 The normal distribution with parameters $\mu$ and $\sigma$:
@@ -891,112 +303,6 @@ f(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\rig
 \]
 Notation: $X \sim N(\mu, \sigma^2)$
 \end{definition}
-
-\textbf{Properties:}
-\begin{itemize}
-    \item Symmetric about $\mu$
-    \item Bell-shaped curve
-    \item $E[X] = \mu$, $\text{Var}(X) = \sigma^2$
-    \item Empirical rule applies
-\end{itemize}
-
-\subsection{Standard Normal Distribution}
-
-\begin{definition}{Standard Normal Distribution}
-\[
-Z = \frac{X - \mu}{\sigma} \sim N(0, 1)
-\]
-The standard normal has $\mu = 0$ and $\sigma = 1$.
-\end{definition}
-
-\begin{example}{Excel Normal Distribution Functions}
-\begin{itemize}
-    \item \texttt{NORM.DIST(x, mean, std\_dev, cumulative)}: PDF or CDF
-    \item \texttt{NORM.S.DIST(z, cumulative)}: Standard normal
-    \item \texttt{NORM.INV(probability, mean, std\_dev)}: Inverse CDF
-    \item \texttt{NORM.S.INV(probability)}: Standard normal inverse
-\end{itemize}
-\end{example}
-
-\subsection{Central Limit Theorem}
-
-\begin{definition}{Central Limit Theorem}
-For a random sample of size $n$ from any population with mean $\mu$ and finite variance $\sigma^2$:
-\[
-\frac{\bar{X} - \mu}{\sigma/\sqrt{n}} \xrightarrow{d} N(0, 1) \text{ as } n \to \infty
-\]
-\end{definition}
-
-\textbf{Practical Implications:}
-\begin{itemize}
-    \item Sample means are approximately normal for large $n$ (typically $n \geq 30$)
-    \item Enables inference about population means
-    \item Foundation for confidence intervals and hypothesis tests
-\end{itemize}
-
-\section{Other Important Distributions}
-
-\subsection{Uniform Distribution}
-
-\begin{definition}{Uniform Distribution}
-For $a \leq x \leq b$:
-\[
-f(x) = \frac{1}{b-a}
-\]
-\[
-E[X] = \frac{a+b}{2}, \quad \text{Var}(X) = \frac{(b-a)^2}{12}
-\]
-\end{definition}
-
-\subsection{Exponential Distribution}
-
-\begin{definition}{Exponential Distribution}
-\[
-f(x) = \lambda e^{-\lambda x}, \quad x \geq 0
-\]
-\[
-E[X] = \frac{1}{\lambda}, \quad \text{Var}(X) = \frac{1}{\lambda^2}
-\]
-\end{definition}
-
-\begin{example}{Excel Exponential Functions}
-\begin{itemize}
-    \item \texttt{EXPON.DIST(x, lambda, cumulative)}: PDF or CDF
-\end{itemize}
-\end{example}
-
-\section{Applications in Excel}
-
-\subsection{Simulation and Monte Carlo Methods}
-
-\begin{example}{Random Number Generation}
-\begin{itemize}
-    \item \texttt{RAND()}: Uniform(0,1)
-    \item \texttt{RANDBETWEEN(bottom, top)}: Discrete uniform
-    \item \texttt{NORM.INV(RAND(), mean, std\_dev)}: Normal random numbers
-\end{itemize}
-\end{example}
-
-\subsection{Probability Calculations}
-
-Excel can calculate various probabilities:
-\begin{enumerate}
-    \item Point probabilities (discrete distributions)
-    \item Interval probabilities (continuous distributions)
-    \item Percentiles and quantiles
-    \item Tail probabilities
-\end{enumerate}
-
-\section{Quality Control Applications}
-
-\subsection{Control Charts}
-
-Using normal distribution for process control:
-\begin{itemize}
-    \item Upper Control Limit: $\mu + 3\sigma$
-    \item Lower Control Limit: $\mu - 3\sigma$
-    \item Center Line: $\mu$
-\end{itemize}
 
 \section{Exercises}
 
@@ -1015,92 +321,18 @@ Using normal distribution for process control:
 
 Correlation and regression analysis examine relationships between variables. Correlation measures the strength and direction of linear relationships, while regression quantifies these relationships and enables prediction.
 
-\section{Scatter Plots and Visual Analysis}
-
-\subsection{Creating Scatter Plots in Excel}
-
-\begin{example}{Excel Scatter Plot Steps}
-\begin{enumerate}
-    \item Select data with two numerical variables
-    \item Insert > Charts > Scatter
-    \item Choose appropriate scatter plot type
-    \item Add trendline for visual relationship assessment
-\end{enumerate}
-\end{example}
-
-\subsection{Interpreting Scatter Plots}
-
-\textbf{Relationship Patterns:}
-\begin{itemize}
-    \item \textbf{Positive Linear:} Points trend upward from left to right
-    \item \textbf{Negative Linear:} Points trend downward from left to right
-    \item \textbf{Nonlinear:} Curved pattern
-    \item \textbf{No Relationship:} Random scatter
-\end{itemize}
-
 \section{Correlation Analysis}
 
 \subsection{Pearson Correlation Coefficient}
 
 \begin{definition}{Pearson Correlation Coefficient}
-The population correlation coefficient:
-\[
-\rho_{XY} = \frac{\text{Cov}(X,Y)}{\sigma_X \sigma_Y} = \frac{E[(X-\mu_X)(Y-\mu_Y)]}{\sigma_X \sigma_Y}
-\]
-
 The sample correlation coefficient:
 \[
 r_{XY} = \frac{\sum_{i=1}^{n}(x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_{i=1}^{n}(x_i - \bar{x})^2 \sum_{i=1}^{n}(y_i - \bar{y})^2}}
 \]
 \end{definition}
 
-\textbf{Properties of Correlation:}
-\begin{itemize}
-    \item $-1 \leq r \leq 1$
-    \item $r = 1$: Perfect positive linear relationship
-    \item $r = -1$: Perfect negative linear relationship
-    \item $r = 0$: No linear relationship
-    \item Unitless measure
-    \item Symmetric: $r_{XY} = r_{YX}$
-\end{itemize}
-
-\begin{example}{Excel Correlation Functions}
-\begin{itemize}
-    \item \texttt{CORREL(array1, array2)}: Correlation coefficient
-    \item \texttt{PEARSON(array1, array2)}: Same as CORREL
-    \item Data Analysis > Correlation: Correlation matrix
-\end{itemize}
-\end{example}
-
-\subsection{Interpreting Correlation Strength}
-
-\begin{table}[H]
-\centering
-\caption{Guidelines for Interpreting Correlation Strength}
-\begin{tabular}{@{}ll@{}}
-\toprule
-\textbf{|r| Value} & \textbf{Interpretation} \\
-\midrule
-0.00 - 0.30 & Weak relationship \\
-0.30 - 0.70 & Moderate relationship \\
-0.70 - 1.00 & Strong relationship \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\subsection{Spearman Rank Correlation}
-
-\begin{definition}{Spearman Rank Correlation}
-For non-parametric correlation (ordinal data or non-linear monotonic relationships):
-\[
-r_s = 1 - \frac{6\sum_{i=1}^{n} d_i^2}{n(n^2-1)}
-\]
-where $d_i$ is the difference between ranks.
-\end{definition}
-
 \section{Simple Linear Regression}
-
-\subsection{The Linear Model}
 
 \begin{definition}{Simple Linear Regression Model}
 Population model:
@@ -1114,190 +346,6 @@ Sample regression line:
 \]
 where $\hat{Y}$ is the predicted value.
 \end{definition}
-
-\subsection{Least Squares Method}
-
-\begin{definition}{Least Squares Estimates}
-Minimize $\sum_{i=1}^{n} (y_i - \hat{y}_i)^2$:
-
-\begin{align}
-b_1 &= \frac{\sum_{i=1}^{n}(x_i - \bar{x})(y_i - \bar{y})}{\sum_{i=1}^{n}(x_i - \bar{x})^2} = \frac{S_{xy}}{S_{xx}}\\
-b_0 &= \bar{y} - b_1\bar{x}
-\end{align}
-
-where:
-\begin{align}
-S_{xy} &= \sum_{i=1}^{n}(x_i - \bar{x})(y_i - \bar{y})\\
-S_{xx} &= \sum_{i=1}^{n}(x_i - \bar{x})^2\\
-S_{yy} &= \sum_{i=1}^{n}(y_i - \bar{y})^2
-\end{align}
-\end{definition}
-
-\begin{example}{Excel Regression Functions}
-\begin{itemize}
-    \item \texttt{SLOPE(known\_y's, known\_x's)}: Slope ($b_1$)
-    \item \texttt{INTERCEPT(known\_y's, known\_x's)}: Intercept ($b_0$)
-    \item \texttt{LINEST(known\_y's, known\_x's, const, stats)}: Comprehensive output
-    \item Data Analysis > Regression: Complete analysis
-\end{itemize}
-\end{example}
-
-\subsection{Relationship Between Correlation and Regression}
-
-\[
-b_1 = r \frac{s_y}{s_x}
-\]
-
-\[
-r^2 = \frac{\text{SSR}}{\text{SST}} = \frac{\sum(\hat{y}_i - \bar{y})^2}{\sum(y_i - \bar{y})^2}
-\]
-
-\section{Regression Analysis Components}
-
-\subsection{Sum of Squares Decomposition}
-
-\begin{definition}{ANOVA for Regression}
-\begin{align}
-\text{SST} &= \sum_{i=1}^{n}(y_i - \bar{y})^2 \quad \text{(Total Sum of Squares)}\\
-\text{SSR} &= \sum_{i=1}^{n}(\hat{y}_i - \bar{y})^2 \quad \text{(Regression Sum of Squares)}\\
-\text{SSE} &= \sum_{i=1}^{n}(y_i - \hat{y}_i)^2 \quad \text{(Error Sum of Squares)}
-\end{align}
-
-Relationship: $\text{SST} = \text{SSR} + \text{SSE}$
-\end{definition}
-
-\subsection{Coefficient of Determination}
-
-\begin{definition}{R-squared}
-\[
-R^2 = \frac{\text{SSR}}{\text{SST}} = 1 - \frac{\text{SSE}}{\text{SST}}
-\]
-
-Interpretation: Proportion of variance in Y explained by X.
-\end{definition}
-
-\begin{example}{Excel R-squared}
-\texttt{RSQ(known\_y's, known\_x's)} or square the correlation coefficient.
-\end{example}
-
-\subsection{Standard Error of Estimate}
-
-\begin{definition}{Standard Error of Estimate}
-\[
-s_e = \sqrt{\frac{\text{SSE}}{n-2}} = \sqrt{\frac{\sum(y_i - \hat{y}_i)^2}{n-2}}
-\]
-\end{definition}
-
-\section{Residual Analysis}
-
-\subsection{Residuals}
-
-\begin{definition}{Residuals}
-\[
-e_i = y_i - \hat{y}_i
-\]
-Residuals represent the unexplained variation in the model.
-\end{definition}
-
-\subsection{Residual Plots}
-
-\textbf{Types of Residual Plots:}
-\begin{itemize}
-    \item Residuals vs. Fitted Values
-    \item Residuals vs. Independent Variable
-    \item Normal Probability Plot of Residuals
-    \item Residuals vs. Order (time series)
-\end{itemize}
-
-\textbf{What to Look For:}
-\begin{itemize}
-    \item Random scatter (good)
-    \item Patterns indicating model inadequacy
-    \item Outliers or influential points
-    \item Non-constant variance (heteroscedasticity)
-\end{itemize}
-
-\section{Assumptions of Linear Regression}
-
-\begin{enumerate}
-    \item \textbf{Linearity:} Relationship between X and Y is linear
-    \item \textbf{Independence:} Observations are independent
-    \item \textbf{Normality:} Residuals are normally distributed
-    \item \textbf{Constant Variance:} Residuals have constant variance (homoscedasticity)
-\end{enumerate}
-
-\section{Prediction and Confidence Intervals}
-
-\subsection{Point Prediction}
-
-\begin{definition}{Prediction}
-For a given value $x_0$:
-\[
-\hat{y}_0 = b_0 + b_1 x_0
-\]
-\end{definition}
-
-\subsection{Prediction Intervals}
-
-\begin{definition}{Prediction Interval}
-A prediction interval for a new observation at $x_0$:
-\[
-\hat{y}_0 \pm t_{\alpha/2, n-2} \cdot s_e \sqrt{1 + \frac{1}{n} + \frac{(x_0 - \bar{x})^2}{S_{xx}}}
-\]
-\end{definition}
-
-\section{Excel Tools for Regression}
-
-\subsection{Trendlines in Charts}
-
-\begin{example}{Adding Trendlines}
-\begin{enumerate}
-    \item Right-click on data points in scatter plot
-    \item Select "Add Trendline"
-    \item Choose linear regression
-    \item Display equation and R-squared value
-\end{enumerate}
-\end{example}
-
-\subsection{Data Analysis ToolPak Regression}
-
-Provides comprehensive regression output:
-\begin{itemize}
-    \item Regression statistics
-    \item ANOVA table
-    \item Coefficient estimates
-    \item Residual analysis
-    \item Residual plots
-\end{itemize}
-
-\section{Multiple Regression (Introduction)
-
-\begin{definition}{Multiple Regression Model}
-\[
-Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \ldots + \beta_k X_k + \varepsilon
-\]
-\end{definition}
-
-\textbf{Excel Implementation:}
-\begin{itemize}
-    \item Use Data Analysis > Regression
-    \item Select multiple X variables
-    \item Interpret adjusted R-squared
-    \item Check for multicollinearity
-\end{itemize}
-
-\section{Practical Applications}
-
-\subsection{Business Applications}
-
-\begin{example}{Common Regression Applications}
-\begin{itemize}
-    \item Sales forecasting based on advertising expenditure
-    \item Cost estimation using production volume
-    \item Performance prediction using training scores
-    \item Market analysis using demographic variables
-\end{itemize}
-\end{example}
 
 \section{Exercises}
 
@@ -1316,317 +364,14 @@ Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \ldots + \beta_k X_k + \varepsilon
 
 This chapter covers advanced Excel functions and features that extend beyond basic descriptive statistics. These tools enable sophisticated statistical analysis, hypothesis testing, and data modeling within the Excel environment.
 
-\section{Array Functions and Dynamic Arrays}
-
-\subsection{Traditional Array Functions}
-
-\begin{example}{Array Formula Examples}
-\begin{itemize}
-    \item \texttt{=SUM(A1:A10*B1:B10)}: Element-wise multiplication and sum
-    \item \texttt{=TRANSPOSE(A1:C3)}: Matrix transpose
-    \item \texttt{=MMULT(A1:B3,C1:D2)}: Matrix multiplication
-\end{itemize}
-Enter with Ctrl+Shift+Enter in older Excel versions.
-\end{example}
-
-\subsection{Dynamic Array Functions (Excel 365)}
-
-\begin{example}{Modern Dynamic Array Functions}
-\begin{itemize}
-    \item \texttt{UNIQUE(array)}: Returns unique values
-    \item \texttt{SORT(array, sort\_index, sort\_order)}: Sorts array
-    \item \texttt{FILTER(array, include)}: Filters based on criteria
-    \item \texttt{SEQUENCE(rows, columns, start, step)}: Generates sequences
-    \item \texttt{RANDARRAY(rows, columns, min, max)}: Random number arrays
-\end{itemize}
-\end{example}
-
 \section{Statistical Distribution Functions}
 
-\subsection{Comprehensive Distribution Coverage}
-
-\begin{table}[H]
-\centering
-\caption{Excel Statistical Distribution Functions}
-\small
-\begin{tabular}{@{}lll@{}}
-\toprule
-\textbf{Distribution} & \textbf{Function} & \textbf{Parameters} \\
-\midrule
-Beta & BETA.DIST & alpha, beta, cumulative \\
-Chi-Square & CHISQ.DIST & x, deg\_freedom, cumulative \\
-F-Distribution & F.DIST & x, deg\_freedom1, deg\_freedom2 \\
-Gamma & GAMMA.DIST & x, alpha, beta, cumulative \\
-Hypergeometric & HYPGEOM.DIST & sample\_s, number\_sample, population\_s \\
-LogNormal & LOGNORM.DIST & x, mean, standard\_dev \\
-Negative Binomial & NEGBINOM.DIST & number\_f, number\_s, probability\_s \\
-Student's t & T.DIST & x, deg\_freedom, cumulative \\
-Weibull & WEIBULL.DIST & x, alpha, beta, cumulative \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\subsection{Inverse Functions for Critical Values}
-
-\begin{example}{Critical Value Functions}
+\begin{example}{Excel Statistical Functions}
 \begin{itemize}
-    \item \texttt{NORM.S.INV(probability)}: Standard normal critical values
-    \item \texttt{T.INV(probability, deg\_freedom)}: t-distribution critical values
-    \item \texttt{CHISQ.INV(probability, deg\_freedom)}: Chi-square critical values
-    \item \texttt{F.INV(probability, deg\_freedom1, deg\_freedom2)}: F-distribution critical values
-\end{itemize}
-\end{example}
-
-\section{Hypothesis Testing Functions}
-
-\subsection{One-Sample Tests}
-
-\begin{definition}{One-Sample t-Test}
-Testing $H_0: \mu = \mu_0$ vs. $H_1: \mu \neq \mu_0$:
-\[
-t = \frac{\bar{x} - \mu_0}{s/\sqrt{n}}
-\]
-\end{definition}
-
-\begin{example}{Excel t-Test Implementation}
-\texttt{=T.TEST(array, hypothesized\_mean, tails, type)}
-where type: 1=paired, 2=two-sample equal variance, 3=two-sample unequal variance
-\end{example}
-
-\subsection{Two-Sample Tests}
-
-\begin{definition}{Two-Sample t-Test}
-For equal variances:
-\[
-t = \frac{\bar{x}_1 - \bar{x}_2}{s_p\sqrt{\frac{1}{n_1} + \frac{1}{n_2}}}
-\]
-where $s_p^2 = \frac{(n_1-1)s_1^2 + (n_2-1)s_2^2}{n_1 + n_2 - 2}$
-\end{definition}
-
-\subsection{Chi-Square Tests}
-
-\begin{definition}{Chi-Square Goodness of Fit}
-\[
-\chi^2 = \sum_{i=1}^{k} \frac{(O_i - E_i)^2}{E_i}
-\]
-where $O_i$ are observed frequencies and $E_i$ are expected frequencies.
-\end{definition}
-
-\begin{example}{Excel Chi-Square Test}
-\texttt{=CHISQ.TEST(actual\_range, expected\_range)}
-\end{example}
-
-\section{Analysis of Variance (ANOVA)
-
-\subsection{One-Way ANOVA}
-
-\begin{definition}{One-Way ANOVA}
-Testing equality of means across groups:
-\[
-F = \frac{\text{MSB}}{\text{MSW}} = \frac{\text{SSB}/(k-1)}{\text{SSW}/(N-k)}
-\]
-where:
-\begin{itemize}
-    \item SSB: Sum of squares between groups
-    \item SSW: Sum of squares within groups
-    \item k: Number of groups
-    \item N: Total sample size
-\end{itemize}
-\end{definition}
-
-\subsection{Excel ANOVA Implementation}
-
-\begin{example}{Data Analysis ToolPak ANOVA}
-\begin{enumerate}
-    \item Data > Data Analysis > ANOVA: Single Factor
-    \item Select input range with groups
-    \item Set alpha level (typically 0.05)
-    \item Interpret F-statistic and p-value
-\end{enumerate}
-\end{example}
-
-\section{Advanced Regression Functions}
-
-\subsection{LINEST Function}
-
-\begin{definition}{LINEST Syntax}
-\texttt{=LINEST(known\_y's, known\_x's, const, stats)}
-
-Returns array with:
-\begin{itemize}
-    \item Regression coefficients
-    \item Standard errors
-    \item R-squared and standard error of estimate
-    \item F-statistic and degrees of freedom
-    \item Regression and residual sum of squares
-\end{itemize}
-\end{definition}
-
-\subsection{LOGEST Function}
-
-\begin{definition}{Exponential Regression}
-\texttt{=LOGEST(known\_y's, known\_x's, const, stats)}
-
-Fits model: $y = b \cdot m_1^{x_1} \cdot m_2^{x_2} \cdots$
-\end{definition}
-
-\section{Time Series Analysis}
-
-\subsection{Moving Averages}
-
-\begin{definition}{Simple Moving Average}
-\[
-\text{MA}_t = \frac{1}{n} \sum_{i=0}^{n-1} Y_{t-i}
-\]
-\end{definition}
-
-\begin{example}{Excel Moving Average}
-\texttt{=AVERAGE(OFFSET(current\_cell, -period+1, 0, period, 1))}
-\end{example}
-
-\subsection{Exponential Smoothing}
-
-\begin{definition}{Exponential Smoothing}
-\[
-S_t = \alpha Y_t + (1-\alpha) S_{t-1}
-\]
-where $0 < \alpha < 1$ is the smoothing parameter.
-\end{definition}
-
-\section{Optimization and Solver}
-
-\subsection{Goal Seek}
-
-\begin{example}{Goal Seek Application}
-\begin{enumerate}
-    \item Data > What-If Analysis > Goal Seek
-    \item Set cell: Formula cell to optimize
-    \item To value: Target value
-    \item By changing cell: Variable to adjust
-\end{enumerate}
-\end{example}
-
-\subsection{Solver Add-in}
-
-\begin{definition}{Solver Capabilities}
-\textbf{Optimization Types:}
-\begin{itemize}
-    \item Linear Programming
-    \item Nonlinear Programming
-    \item Evolutionary (Genetic Algorithm)
-\end{itemize}
-
-\textbf{Constraint Types:}
-\begin{itemize}
-    \item Equality: $g(x) = b$
-    \item Inequality: $g(x) \leq b$ or $g(x) \geq b$
-    \item Integer constraints
-    \item Binary constraints
-\end{itemize}
-\end{definition}
-
-\section{Monte Carlo Simulation}
-
-\subsection{Random Number Generation}
-
-\begin{example}{Simulation Techniques}
-\textbf{Distribution Sampling:}
-\begin{itemize}
-    \item Uniform: \texttt{=RAND()}
-    \item Normal: \texttt{=NORM.INV(RAND(), mean, std\_dev)}
-    \item Exponential: \texttt{=EXPON.INV(RAND(), lambda)}
-    \item Triangular: Custom formula using RAND()
-\end{itemize}
-\end{example}
-
-\subsection{Simulation Analysis}
-
-\begin{definition}{Monte Carlo Steps}
-\begin{enumerate}
-    \item Define probability distributions for inputs
-    \item Generate random samples
-    \item Calculate output for each iteration
-    \item Analyze distribution of outputs
-    \item Compute summary statistics and percentiles
-\end{enumerate}
-\end{definition}
-
-\section{Advanced Pivot Table Functions}
-
-\subsection{Statistical Summary in Pivot Tables}
-
-\begin{example}{Pivot Table Statistical Functions}
-\textbf{Available Summary Functions:}
-\begin{itemize}
-    \item Count, Sum, Average
-    \item Max, Min
-    \item Standard Deviation (StdDev)
-    \item Variance (Var)
-    \item Product
-\end{itemize}
-\end{example}
-
-\subsection{Calculated Fields and Items}
-
-\begin{example}{Custom Calculations}
-\textbf{Calculated Fields:}
-\begin{itemize}
-    \item Create new metrics from existing data
-    \item Example: Profit Margin = Profit / Sales
-\end{itemize}
-
-\textbf{Calculated Items:}
-\begin{itemize}
-    \item Group existing categories
-    \item Example: Total Region = North + South
-\end{itemize}
-\end{example}
-
-\section{Data Validation and Error Handling}
-
-\subsection{Statistical Data Validation}
-
-\begin{example}{Validation Rules}
-\begin{itemize}
-    \item Range constraints: Between values
-    \item List validation: Predefined categories
-    \item Formula validation: Custom statistical rules
-    \item Date/Time validation: Temporal constraints
-\end{itemize}
-\end{example}
-
-\subsection{Error Functions}
-
-\begin{example}{Error Handling Functions}
-\begin{itemize}
-    \item \texttt{IFERROR(value, value\_if\_error)}: Handle calculation errors
-    \item \texttt{ISNA(value)}: Check for #N/A errors
-    \item \texttt{ISERROR(value)}: Check for any error
-    \item \texttt{AGGREGATE(function\_num, options, array)}: Ignore errors in calculations
-\end{itemize}
-\end{example}
-
-\section{Practical Applications}
-
-\subsection{Quality Control Dashboard}
-
-\begin{example}{Statistical Dashboard Components}
-\begin{itemize}
-    \item Control charts with statistical limits
-    \item Process capability indices
-    \item Histogram with normal overlay
-    \item Real-time statistical monitoring
-\end{itemize}
-\end{example}
-
-\subsection{Financial Risk Analysis}
-
-\begin{example}{Risk Metrics}
-\begin{itemize}
-    \item Value at Risk (VaR) calculations
-    \item Monte Carlo portfolio simulation
-    \item Correlation matrices
-    \item Stress testing scenarios
+    \item \texttt{NORM.DIST(x, mean, std\_dev, cumulative)}: Normal distribution
+    \item \texttt{T.DIST(x, deg\_freedom, cumulative)}: t-distribution
+    \item \texttt{CHISQ.DIST(x, deg\_freedom, cumulative)}: Chi-square distribution
+    \item \texttt{BINOM.DIST(k, n, p, cumulative)}: Binomial distribution
 \end{itemize}
 \end{example}
 
@@ -1651,7 +396,7 @@ This chapter presents comprehensive projects and case studies that integrate all
 
 \subsection{Background}
 
-A manufacturing company produces electronic components with a target diameter of 10.00 mm. The production process should maintain this specification with minimal variation. Quality control engineers collect daily samples to monitor process performance.
+A manufacturing company produces electronic components with a target diameter of 10.00 mm. The production process should maintain this specification with minimal variation.
 
 \subsection{Objectives}
 
@@ -1662,337 +407,11 @@ A manufacturing company produces electronic components with a target diameter of
     \item Make recommendations for process improvement
 \end{itemize}
 
-\subsection{Data Description}
-
-Daily samples of 25 components over 30 days, measuring:
-\begin{itemize}
-    \item Diameter (mm)
-    \item Production shift (A, B, C)
-    \item Machine number (1-5)
-    \item Operator ID
-    \item Date and time
-\end{itemize}
-
-\subsection{Analysis Steps}
-
-\subsubsection{Step 1: Descriptive Statistics}
-
-\begin{example}{Excel Implementation}
-\begin{enumerate}
-    \item Calculate mean, median, standard deviation for each day
-    \item Create histograms to assess normality
-    \item Compute process capability indices:
-    \begin{itemize}
-        \item $C_p = \frac{\text{USL} - \text{LSL}}{6\sigma}$
-        \item $C_{pk} = \min\left(\frac{\text{USL} - \bar{x}}{3\sigma}, \frac{\bar{x} - \text{LSL}}{3\sigma}\right)$
-    \end{itemize}
-\end{enumerate}
-\end{example}
-
-\subsubsection{Step 2: Control Charts}
-
-\begin{definition}{X-bar and R Charts}
-\textbf{X-bar Chart:}
-\begin{align}
-\text{UCL} &= \bar{\bar{x}} + A_2 \bar{R}\\
-\text{CL} &= \bar{\bar{x}}\\
-\text{LCL} &= \bar{\bar{x}} - A_2 \bar{R}
-\end{align}
-
-\textbf{R Chart:}
-\begin{align}
-\text{UCL} &= D_4 \bar{R}\\
-\text{CL} &= \bar{R}\\
-\text{LCL} &= D_3 \bar{R}
-\end{align}
-
-where constants $A_2$, $D_3$, $D_4$ depend on sample size.
-\end{definition}
-
-\subsubsection{Step 3: ANOVA Analysis}
-
-Analyze variation sources:
-\begin{itemize}
-    \item Between shifts
-    \item Between machines
-    \item Between operators
-    \item Interaction effects
-\end{itemize}
-
-\subsection{Results Interpretation}
-
-\textbf{Process Capability Assessment:}
-\begin{itemize}
-    \item $C_p > 1.33$: Process capable
-    \item $1.0 < C_p < 1.33$: Process marginally capable
-    \item $C_p < 1.0$: Process not capable
-\end{itemize}
-
 \section{Project 2: Sales Forecasting Model}
 
 \subsection{Background}
 
-A retail company wants to develop a forecasting model to predict monthly sales based on various factors including advertising expenditure, seasonal effects, economic indicators, and promotional activities.
-
-\subsection{Variables}
-
-\textbf{Dependent Variable:}
-\begin{itemize}
-    \item Monthly Sales Revenue (\$000)
-\end{itemize}
-
-\textbf{Independent Variables:}
-\begin{itemize}
-    \item Advertising Expenditure (\$000)
-    \item Consumer Price Index
-    \item Unemployment Rate (\%)
-    \item Number of Promotional Days
-    \item Seasonal Dummy Variables
-\end{itemize}
-
-\subsection{Analysis Methodology}
-
-\subsubsection{Step 1: Exploratory Data Analysis}
-
-\begin{example}{Excel Correlation Matrix}
-\begin{enumerate}
-    \item Create scatter plots for each variable pair
-    \item Calculate correlation matrix using Data Analysis ToolPak
-    \item Identify multicollinearity issues (correlations > 0.8)
-\end{enumerate}
-\end{example}
-
-\subsubsection{Step 2: Multiple Regression Model}
-
-\begin{definition}{Multiple Regression Equation}
-\[
-\text{Sales} = \beta_0 + \beta_1(\text{Advertising}) + \beta_2(\text{CPI}) + \beta_3(\text{Unemployment}) + \varepsilon
-\]
-\end{definition}
-
-\subsubsection{Step 3: Model Validation}
-
-\textbf{Statistical Tests:}
-\begin{itemize}
-    \item F-test for overall model significance
-    \item t-tests for individual coefficients
-    \item Durbin-Watson test for autocorrelation
-\end{itemize}
-
-\textbf{Residual Analysis:}
-\begin{itemize}
-    \item Normality of residuals (Q-Q plot)
-    \item Homoscedasticity (residuals vs. fitted)
-    \item Independence (residuals vs. time)
-\end{itemize}
-
-\subsection{Forecasting Implementation}
-
-\begin{example}{Excel Forecast Model}
-\begin{enumerate}
-    \item Use LINEST function for coefficient estimation
-    \item Create prediction intervals
-    \item Implement scenario analysis
-    \item Develop dynamic forecasting dashboard
-\end{enumerate}
-\end{example}
-
-\section{Project 3: A/B Testing Analysis}
-
-\subsection{Experimental Design}
-
-An e-commerce company tests two website designs:
-\begin{itemize}
-    \item Control Group (A): Current design
-    \item Treatment Group (B): New design
-\end{itemize}
-
-\subsection{Metrics}
-
-\textbf{Primary Metrics:}
-\begin{itemize}
-    \item Conversion Rate
-    \item Average Order Value
-    \item Revenue per Visitor
-\end{itemize}
-
-\textbf{Secondary Metrics:}
-\begin{itemize}
-    \item Time on Site
-    \item Pages per Session
-    \item Bounce Rate
-\end{itemize}
-
-\subsection{Statistical Analysis}
-
-\subsubsection{Sample Size Calculation}
-
-\begin{definition}{Sample Size for Proportions}
-For detecting difference in conversion rates:
-\[
-n = \frac{2(Z_{\alpha/2} + Z_\beta)^2 p(1-p)}{(p_1 - p_2)^2}
-\]
-where:
-\begin{itemize}
-    \item $p = \frac{p_1 + p_2}{2}$ (pooled proportion)
-    \item $Z_{\alpha/2}$: Critical value for Type I error
-    \item $Z_\beta$: Critical value for Type II error
-\end{itemize}
-\end{definition}
-
-\subsubsection{Hypothesis Testing}
-
-\begin{definition}{Two-Proportion Z-Test}
-\[
-Z = \frac{\hat{p}_1 - \hat{p}_2}{\sqrt{\hat{p}(1-\hat{p})\left(\frac{1}{n_1} + \frac{1}{n_2}\right)}}
-\]
-where $\hat{p} = \frac{x_1 + x_2}{n_1 + n_2}$ is the pooled proportion.
-\end{definition}
-
-\subsection{Business Impact Analysis}
-
-\textbf{Economic Significance:}
-\begin{itemize}
-    \item Calculate confidence intervals for lift
-    \item Estimate revenue impact
-    \item Perform sensitivity analysis
-\end{itemize}
-
-\section{Project 4: Customer Segmentation Analysis}
-
-\subsection{Objective}
-
-Segment customers based on purchasing behavior using statistical clustering techniques implemented in Excel.
-
-\subsection{Customer Metrics}
-
-\textbf{RFM Analysis:}
-\begin{itemize}
-    \item \textbf{Recency:} Days since last purchase
-    \item \textbf{Frequency:} Number of purchases
-    \item \textbf{Monetary:} Total purchase amount
-\end{itemize}
-
-\subsection{Statistical Approach}
-
-\subsubsection{Step 1: Data Standardization}
-
-\begin{definition}{Z-Score Standardization}
-\[
-Z = \frac{X - \mu}{\sigma}
-\]
-Standardizes variables to comparable scales.
-\end{definition}
-
-\subsubsection{Step 2: Distance Calculations}
-
-\begin{definition}{Euclidean Distance}
-\[
-d_{ij} = \sqrt{\sum_{k=1}^{p} (x_{ik} - x_{jk})^2}
-\]
-where $p$ is the number of variables.
-\end{definition}
-
-\subsubsection{Step 3: Cluster Analysis}
-
-Using Excel Solver for k-means clustering:
-\begin{enumerate}
-    \item Define cluster centers
-    \item Assign customers to nearest center
-    \item Update centers to minimize within-cluster variance
-    \item Iterate until convergence
-\end{enumerate}
-
-\section{Project 5: Financial Risk Assessment}
-
-\subsection{Portfolio Analysis}
-
-Analyze risk and return characteristics of investment portfolio using statistical methods.
-
-\subsection{Risk Metrics}
-
-\subsubsection{Value at Risk (VaR)}
-
-\begin{definition}{Historical VaR}
-\[
-\text{VaR}_{\alpha} = -\text{Percentile}(\text{Returns}, \alpha)
-\]
-where $\alpha$ is the confidence level (e.g., 5\% for 95\% VaR).
-\end{definition}
-
-\begin{definition}{Parametric VaR}
-\[
-\text{VaR}_{\alpha} = -(\mu + Z_{\alpha} \sigma) \times \text{Portfolio Value}
-\]
-Assuming normal distribution of returns.
-\end{definition}
-
-\subsubsection{Monte Carlo Simulation}
-
-\begin{example}{Excel Monte Carlo VaR}
-\begin{enumerate}
-    \item Generate random returns using NORM.INV(RAND(), mean, std)
-    \item Calculate portfolio values for each simulation
-    \item Compute percentiles for VaR estimation
-    \item Create distribution histogram
-\end{enumerate}
-\end{example}
-
-\subsection{Correlation Analysis}
-
-\begin{definition}{Portfolio Variance}
-\[
-\sigma_p^2 = \sum_{i=1}^{n} \sum_{j=1}^{n} w_i w_j \sigma_{ij}
-\]
-where $w_i$ are portfolio weights and $\sigma_{ij}$ is the covariance matrix.
-\end{definition}
-
-\section{Integration and Automation}
-
-\subsection{Dashboard Development}
-
-\textbf{Key Components:}
-\begin{itemize}
-    \item Interactive parameter controls
-    \item Real-time calculations
-    \item Visual indicators and alerts
-    \item Automated report generation
-\end{itemize}
-
-\subsection{Macro Development}
-
-\begin{example}{VBA Integration}
-\textbf{Automation Opportunities:}
-\begin{itemize}
-    \item Data import and cleaning
-    \item Repetitive statistical calculations
-    \item Chart and table formatting
-    \item Report distribution
-\end{itemize}
-\end{example}
-
-\section{Best Practices}
-
-\subsection{Documentation Standards}
-
-\textbf{Requirements:}
-\begin{itemize}
-    \item Clear variable definitions
-    \item Assumption documentation
-    \item Methodology explanation
-    \item Results interpretation
-    \item Limitations discussion
-\end{itemize}
-
-\subsection{Quality Assurance}
-
-\textbf{Validation Steps:}
-\begin{itemize}
-    \item Formula verification
-    \item Sensitivity analysis
-    \item Cross-validation with alternative methods
-    \item Peer review process
-\end{itemize}
+A retail company wants to develop a forecasting model to predict monthly sales based on various factors including advertising expenditure, seasonal effects, and economic indicators.
 
 \section{Exercises}
 
@@ -2011,55 +430,26 @@ where $w_i$ are portfolio weights and $\sigma_{ij}$ is the covariance matrix.
 
 \section{Statistical Functions Quick Reference}
 
-\begin{longtable}{@{}lll@{}}
-\caption{Complete Excel Statistical Functions Reference} \\
+\begin{table}[H]
+\centering
+\caption{Essential Excel Statistical Functions}
+\begin{tabular}{@{}lll@{}}
 \toprule
 \textbf{Function} & \textbf{Purpose} & \textbf{Syntax} \\
 \midrule
-\endfirsthead
-\caption[]{Complete Excel Statistical Functions Reference (continued)} \\
-\toprule
-\textbf{Function} & \textbf{Purpose} & \textbf{Syntax} \\
-\midrule
-\endhead
+AVERAGE & Arithmetic mean & \texttt{=AVERAGE(range)} \\
+MEDIAN & Middle value & \texttt{=MEDIAN(range)} \\
+STDEV.S & Sample standard deviation & \texttt{=STDEV.S(range)} \\
+VAR.S & Sample variance & \texttt{=VAR.S(range)} \\
+CORREL & Correlation coefficient & \texttt{=CORREL(array1, array2)} \\
+SLOPE & Regression slope & \texttt{=SLOPE(known\_y, known\_x)} \\
+INTERCEPT & Regression intercept & \texttt{=INTERCEPT(known\_y, known\_x)} \\
+NORM.DIST & Normal distribution & \texttt{=NORM.DIST(x, mean, std, cum)} \\
+T.DIST & t-distribution & \texttt{=T.DIST(x, df, cum)} \\
+BINOM.DIST & Binomial distribution & \texttt{=BINOM.DIST(k, n, p, cum)} \\
 \bottomrule
-\endfoot
-\bottomrule
-\endlastfoot
-AVERAGE & Arithmetic mean & =AVERAGE(range) \\
-MEDIAN & Middle value & =MEDIAN(range) \\
-MODE.SNGL & Most frequent value & =MODE.SNGL(range) \\
-STDEV.S & Sample standard deviation & =STDEV.S(range) \\
-STDEV.P & Population standard deviation & =STDEV.P(range) \\
-VAR.S & Sample variance & =VAR.S(range) \\
-VAR.P & Population variance & =VAR.P(range) \\
-CORREL & Correlation coefficient & =CORREL(array1, array2) \\
-SLOPE & Regression slope & =SLOPE(known\_y, known\_x) \\
-INTERCEPT & Regression intercept & =INTERCEPT(known\_y, known\_x) \\
-RSQ & R-squared & =RSQ(known\_y, known\_x) \\
-NORM.DIST & Normal distribution & =NORM.DIST(x, mean, std, cum) \\
-NORM.INV & Normal inverse & =NORM.INV(prob, mean, std) \\
-T.DIST & t-distribution & =T.DIST(x, df, cum) \\
-T.INV & t-distribution inverse & =T.INV(prob, df) \\
-CHISQ.DIST & Chi-square distribution & =CHISQ.DIST(x, df, cum) \\
-F.DIST & F-distribution & =F.DIST(x, df1, df2, cum) \\
-BINOM.DIST & Binomial distribution & =BINOM.DIST(k, n, p, cum) \\
-POISSON.DIST & Poisson distribution & =POISSON.DIST(k, lambda, cum) \\
-\end{longtable}
-
-\chapter{Statistical Tables}
-
-\section{Critical Values}
-
-This section would typically include statistical tables for:
-\begin{itemize}
-    \item Standard Normal Distribution (Z-table)
-    \item Student's t-Distribution
-    \item Chi-Square Distribution
-    \item F-Distribution
-\end{itemize}
-
-\textit{Note: These tables are available through Excel functions and online resources.}
+\end{tabular}
+\end{table}
 
 \chapter{Formulas and Definitions Summary}
 
@@ -2068,56 +458,26 @@ This section would typically include statistical tables for:
 \begin{align}
 \text{Mean: } \bar{x} &= \frac{\sum_{i=1}^{n} x_i}{n}\\
 \text{Variance: } s^2 &= \frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n-1}\\
-\text{Standard Deviation: } s &= \sqrt{s^2}\\
-\text{Coefficient of Variation: } CV &= \frac{s}{\bar{x}} \times 100\%
+\text{Standard Deviation: } s &= \sqrt{s^2}
 \end{align}
 
 \section{Correlation and Regression}
 
 \begin{align}
 \text{Correlation: } r &= \frac{\sum(x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum(x_i - \bar{x})^2 \sum(y_i - \bar{y})^2}}\\
-\text{Slope: } b_1 &= \frac{\sum(x_i - \bar{x})(y_i - \bar{y})}{\sum(x_i - \bar{x})^2}\\
-\text{Intercept: } b_0 &= \bar{y} - b_1\bar{x}\\
-\text{R-squared: } R^2 &= r^2 = \frac{\text{SSR}}{\text{SST}}
+\text{Slope: } b_1 &= \frac{\sum(x_i - \bar{x})(y_i - \bar{y})}{\sum(x_i - \bar{x})^2}
 \end{align}
-
-\section{Probability Distributions}
-
-\textbf{Normal Distribution:}
-\[
-f(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2}
-\]
-
-\textbf{Standard Normal:}
-\[
-Z = \frac{X - \mu}{\sigma}
-\]
-
-\textbf{Central Limit Theorem:}
-\[
-\frac{\bar{X} - \mu}{\sigma/\sqrt{n}} \sim N(0,1) \text{ for large } n
-\]
 
 \chapter{Glossary}
 
 \begin{description}
     \item[ANOVA] Analysis of Variance - statistical technique for comparing means across multiple groups
     \item[Central Limit Theorem] Mathematical theorem stating that sample means approach normality as sample size increases
-    \item[Coefficient of Determination] R-squared value indicating proportion of variance explained by regression model
     \item[Correlation] Statistical measure of linear relationship strength between two variables
     \item[Descriptive Statistics] Methods for summarizing and describing data characteristics
-    \item[Hypothesis Testing] Statistical procedure for making decisions about population parameters
-    \item[P-value] Probability of obtaining results at least as extreme as observed, assuming null hypothesis is true
     \item[Regression] Statistical method for modeling relationships between variables
     \item[Standard Error] Standard deviation of sampling distribution
-    \item[Type I Error] Rejecting true null hypothesis (false positive)
-    \item[Type II Error] Failing to reject false null hypothesis (false negative)
     \item[Variance] Measure of data dispersion; average squared deviation from mean
 \end{description}
-
-\chapter*{Index}
-\addcontentsline{toc}{chapter}{Index}
-
-\textit{A comprehensive index would be included in a final version, organizing all important terms, concepts, and Excel functions alphabetically for easy reference.}
 
 \end{document}
